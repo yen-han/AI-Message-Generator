@@ -1,6 +1,15 @@
-This is AI generated message webpage by Open AI.
-
-## Getting Started
+# AI Generated Message App  
+  
+This is an AI generated message application by [Open AI](https://openai.com/api/). It is to generate message on tweets or thank you email for specific topic.    
+  
+React, JavaScript, REST API are used to complete the project.   
+   
+## Feature  
+  
+REST API   
+The message is requested with openai library. API is re-fetched whenever the 'Generate' buttion is clicked.   
+   
+## How to run   
 
 First, run the development server:
 
@@ -12,8 +21,3 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
