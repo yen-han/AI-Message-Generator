@@ -30,7 +30,7 @@ function Thankyou() {
             <Input type='text' name='emailInput' />
             </FormControl>
             <Center>
-            <Button colorScheme='blue' type="submit">Button</Button>
+            <Button colorScheme='blue' type="submit">Generate</Button>
             </Center>
         </form>
         <Box mt="10" borderWidth='1px' padding='5' borderRadius='lg'>
