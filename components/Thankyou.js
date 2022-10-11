@@ -19,23 +19,23 @@ function Thankyou() {
         let prompt= 'Thank you email about '+ formDataObj.emailInput;
         console.log(prompt)
         generateAI(prompt).then((response)=>{
-            setData(response.data.choices[0].text)}
-            ).catch((err)=>console.log(err));
+            setData(response.data.choices[0].text)
+        }).catch((err)=>console.log(err));
     }
   return (
     <div className="tweets">
         <form onSubmit={handleSubmit}>
             <FormControl mb="10">
-            <FormLabel>Thank you email about .. ?</FormLabel>
-            <Input type='text' name='emailInput' />
+                <FormLabel>Thank you email about .. ?</FormLabel>
+                <Input type='text' name='emailInput' />
             </FormControl>
             <Center>
-            <Button colorScheme='blue' type="submit">Generate</Button>
+                <Button colorScheme='teal' type="submit">Generate</Button>
             </Center>
         </form>
-        <Box mt="10" borderWidth='1px' padding='5' borderRadius='lg'>
-        <h3 as='b'>Response</h3>
-        <p>{data}</p>
+        <h3 mt="10" as='b'>Response</h3>
+        <Box mt='2' borderWidth='1px' padding='5' borderRadius='lg'>
+            <p>{data}</p>
         </Box>
     </div>
     );
