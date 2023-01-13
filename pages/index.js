@@ -7,9 +7,7 @@ import Thankyou from "../components/Thankyou";
 import SavedMessages from "../components/SavedMessages";
 export default function Home() {
   const [which, setWhich] = useState(0);
-  useEffect(() => {
-    console.log(which);
-  }, [which]);
+  useEffect(() => {}, [which]);
   return (
     <ChakraProvider>
       <Head>
