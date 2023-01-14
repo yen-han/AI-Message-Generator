@@ -1,15 +1,16 @@
-# AI Generated Message App  
-  
-This is an AI generated message application by [Open AI](https://openai.com/api/). It is to generate message on tweets or thank you email for specific topic.    
-  
-React, JavaScript, REST API are used to complete the project.   
-   
-## Feature  
-  
-REST API   
-The message is requested with openai library. API is re-fetched whenever the 'Generate' buttion is clicked.   
-   
-## How to run   
+# AI Generated Message App
+
+AI Message Generator application using [Open AI](https://openai.com/api/). It is to generate messages for thank you email on customized topic & saved results for multiple use.
+
+NextJS, React, JavaScript, REST API are used to complete the project.
+
+## Feature
+
+- REST API  
+  The message is requested with Open AI library. API is re-fetched whenever the 'Generate' button is clicked.
+- Style with External UI kit
+
+## How to run
 
 First, run the development server:
 
@@ -20,4 +21,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
