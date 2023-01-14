@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { generateAI } from "../pages/api/generate";
+import { v4 as uuidv4 } from "uuid";
+import { ulid } from "ulid";
 import {
   FormControl,
   FormLabel,
@@ -27,10 +29,12 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react";
+
 function Thankyou() {
-  const [data, setData] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState(1);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -40,7 +44,13 @@ function Thankyou() {
     console.log(formDataObj, value);
     generateAI(prompt, value)
       .then((response) => {
-        setData(response.data.choices[0].text);
+        let tempResults = [];
+        response.data.choices.forEach((choice) => {
+          tempResults.push({ id: uuidv4(), sort: ulid(), text: choice.text });
+        });
+
+        setMessages(tempResults);
+        console.log(messages);
         setIsLoading(false);
         console.log(response.data.choices);
       })
@@ -80,7 +90,7 @@ function Thankyou() {
       {isLoading && (
         <CircularProgress isIndeterminate color="blue.300" ml="47%" mt="10%" />
       )}
-      {data.length !== 0 && (
+      {messages.length !== 0 && (
         <Box
           bg="blue.50"
           mt="6"
@@ -92,29 +102,33 @@ function Thankyou() {
             <Table variant="simple">
               <Thead>
                 <Tr>
-                  <Th>Generated Tweet</Th>
+                  <Th>Generated Messages</Th>
                   <Th>Save</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td>
-                    <Text wordBreak="break-word">{data}</Text>
-                  </Td>
-                  <Td>
-                    <Center>
-                      <Checkbox
-                        // isChecked={tweets[saveIndex].save}
-                        alignItems="center"
-                        size="lg"
-                        // onChange={(e) => {
-                        //   // handleCheck(saveIndex);
-                        //   // saveResult(e.target.checked, record);
-                        // }}
-                      ></Checkbox>
-                    </Center>
-                  </Td>
-                </Tr>
+                {messages.map((message, index) => {
+                  return (
+                    <Tr key={message.id}>
+                      <Td>
+                        <Text wordBreak="break-word">{message.text}</Text>
+                      </Td>
+                      <Td>
+                        <Center>
+                          <Checkbox
+                            // isChecked={tweets[saveIndex].save}
+                            alignItems="center"
+                            size="lg"
+                            // onChange={(e) => {
+                            //   // handleCheck(saveIndex);
+                            //   // saveResult(e.target.checked, record);
+                            // }}
+                          ></Checkbox>
+                        </Center>
+                      </Td>
+                    </Tr>
+                  );
+                })}
               </Tbody>
             </Table>
           </TableContainer>
