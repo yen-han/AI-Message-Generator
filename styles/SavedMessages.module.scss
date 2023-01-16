@@ -1,0 +1,21 @@
+.pagination {
+  font-size: 12px;
+  margin: 10px;
+  width: 100%;
+  > li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  [class^="previous disabled"] {
+    color: darkgray;
+  }
+
+  [class^="next disabled"] {
+    color: darkgray;
+  }
+
+  [class^="active"] {
+    font-weight: 700;
+  }
+}
