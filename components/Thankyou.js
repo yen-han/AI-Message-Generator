@@ -2,6 +2,7 @@ import { useState } from "react";
 import { generateAI } from "../pages/api/generate";
 import { v4 as uuidv4 } from "uuid";
 import { ulid } from "ulid";
+import axios from "axios";
 import {
   FormControl,
   FormLabel,
@@ -41,7 +42,7 @@ function Thankyou() {
     let formDataObj = Object.fromEntries(formData.entries());
     setIsLoading(true);
     let prompt = "Thank you email about " + formDataObj.emailInput;
-    console.log(formDataObj, value);
+    // console.log(formDataObj, value);
     generateAI(prompt, value)
       .then((response) => {
         let tempResults = [];
@@ -50,12 +51,16 @@ function Thankyou() {
         });
 
         setMessages(tempResults);
-        console.log(messages);
+        // console.log(messages);
         setIsLoading(false);
-        console.log(response.data.choices);
+        // console.log(response.data.choices);
       })
       .catch((err) => console.log(err));
   };
+  function saveMessage(save, message) {
+    if (save) {
+    }
+  }
 
   return (
     <div className="tweets">
@@ -119,10 +124,10 @@ function Thankyou() {
                             // isChecked={tweets[saveIndex].save}
                             alignItems="center"
                             size="lg"
-                            // onChange={(e) => {
-                            //   // handleCheck(saveIndex);
-                            //   // saveResult(e.target.checked, record);
-                            // }}
+                            onChange={(e) => {
+                              // handleCheck(saveIndex);
+                              saveMessage(e.target.checked, message);
+                            }}
                           ></Checkbox>
                         </Center>
                       </Td>
