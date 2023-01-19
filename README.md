@@ -6,6 +6,7 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It is
 
 - REST API  
   The message is requested with Open AI library. API is re-fetched whenever the 'Generate' button is clicked.
+- MongoDB Database
 - Style with External UI kit(Chakra UI)
 
 ## How it works
@@ -18,9 +19,10 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It is
 - NextJS
 - React
 - JavaScript
+- MongoDB
+- REST API
 - Chakra UI
 - SASS
-- REST API
 
 ## Getting Started
 
