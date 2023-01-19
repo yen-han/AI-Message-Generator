@@ -26,12 +26,22 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It is
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repo
+
+```bash 
+git clone https://github.com/yen-han/AI-Message-Generator.git
+```
+
+2. Install NPM packages
+
+```bash 
+npm install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
