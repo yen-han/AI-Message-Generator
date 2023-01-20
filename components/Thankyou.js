@@ -57,8 +57,12 @@ function Thankyou() {
       })
       .catch((err) => console.log(err));
   };
+
   function saveMessage(save, message) {
     if (save) {
+      axios.post("/api/saveMessages", message);
+    } else {
+      axios.post("/api/deleteMessages", message);
     }
   }
 

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import {
   Box,
+  Center,
   Table,
   Thead,
   Tbody,
@@ -12,11 +13,19 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 import styles from "../styles/SavedMessages.module.scss";
+import axios from "axios";
 function SavedMessages() {
   const [currentPage, setCurrentPage] = useState(0);
   const [recordsPerPage] = useState(5);
   const [messages, setMessages] = useState(["no messages"]);
-
+  useEffect(() => {
+    axios
+      .get("/api/getMessages")
+      .then((response) => {
+        setMessages(JSON.parse(JSON.stringify(response.data)));
+      })
+      .catch((err) => console.log(err));
+  }, []);
   const indexOfFirstRecord = currentPage * recordsPerPage;
   const indexOfLastRecord = indexOfFirstRecord + recordsPerPage;
   const currentRecords = messages.slice(indexOfFirstRecord, indexOfLastRecord);
@@ -35,26 +44,34 @@ function SavedMessages() {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td></Td>
-              <Td>
-                <Checkbox alignItems="center" size="lg"></Checkbox>
-              </Td>
-            </Tr>
+            {currentRecords.map((message, index) => {
+              return (
+                <Tr key={index}>
+                  <Td>{message.text} </Td>
+                  <Td>
+                    <Checkbox alignItems="center" size="lg"></Checkbox>
+                  </Td>
+                </Tr>
+              );
+            })}
           </Tbody>
         </Table>
       </TableContainer>
-      <ReactPaginate
-        className={styles.pagination}
-        previousLabel={"<"}
-        nextLabel={">"}
-        pageRangeDisplayed={recordsPerPage}
-        marginPagesDisplayed={recordsPerPage}
-        pageCount={pageCount}
-        onPageChange={changePage}
-        disabledClassName={"disabled"}
-        activeClassName={"active"}
-      />
+      <Center>
+        <Box>
+          <ReactPaginate
+            className={styles.pagination}
+            previousLabel={"<"}
+            nextLabel={">"}
+            pageRangeDisplayed={recordsPerPage}
+            marginPagesDisplayed={recordsPerPage}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            disabledClassName={"disabled"}
+            activeClassName={"active"}
+          />
+        </Box>
+      </Center>
     </Box>
   );
 }

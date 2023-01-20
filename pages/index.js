@@ -7,7 +7,7 @@ import Thankyou from "../components/Thankyou";
 import SavedMessages from "../components/SavedMessages";
 import clientPromise from "../lib/database";
 
-export default function Home({ isConnected }) {
+export default function Home() {
   const [which, setWhich] = useState(0);
   useEffect(() => {}, [which]);
   return (
@@ -58,11 +58,6 @@ export default function Home({ isConnected }) {
             <Center mb="9" fontSize="xl">
               Built with NextJS & OPEN AI
             </Center>
-            {isConnected ? (
-              <h2 className="subtitle">You are connected to MongoDB</h2>
-            ) : (
-              <h2 className="subtitle">You are NOT connected to MongoDB.</h2>
-            )}
             {which === 0 ? <Thankyou /> : <SavedMessages />}
           </Box>
         </Flex>
