@@ -47,7 +47,12 @@ function Thankyou() {
       .then((response) => {
         let tempResults = [];
         response.data.choices.forEach((choice) => {
-          tempResults.push({ id: uuidv4(), sort: ulid(), text: choice.text });
+          tempResults.push({
+            id: uuidv4(),
+            topic: formDataObj.emailInput,
+            sort: ulid(),
+            text: choice.text,
+          });
         });
 
         setMessages(tempResults);

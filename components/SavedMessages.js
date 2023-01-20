@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import styles from "../styles/SavedMessages.module.scss";
 import axios from "axios";
+
 function SavedMessages() {
   const [currentPage, setCurrentPage] = useState(0);
   const [recordsPerPage] = useState(5);
@@ -39,6 +40,7 @@ function SavedMessages() {
         <Table variant="simple">
           <Thead>
             <Tr>
+              <Th>Topic</Th>
               <Th>Saved Messages</Th>
               <Th>Delete</Th>
             </Tr>
@@ -47,6 +49,7 @@ function SavedMessages() {
             {currentRecords.map((message, index) => {
               return (
                 <Tr key={index}>
+                  <Td>{message.topic}</Td>
                   <Td>{message.text} </Td>
                   <Td>
                     <Checkbox alignItems="center" size="lg"></Checkbox>
