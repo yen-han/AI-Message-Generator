@@ -36,7 +36,8 @@ function SavedMessages() {
     axios
       .get("/api/getMessages")
       .then((response) => {
-        setMessages(JSON.parse(JSON.stringify(response.data)));
+        let temp = JSON.parse(JSON.stringify(response.data));
+        setMessages(temp.sort((a, b) => (a.sort > b.sort ? -1 : 1)));
       })
       .catch((err) => console.log(err));
   }, [messages]);
@@ -49,7 +50,6 @@ function SavedMessages() {
   };
 
   function onDelete(message) {
-    // console.log(message);
     axios.post("/api/deleteMessages", message);
   }
 

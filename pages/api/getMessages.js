@@ -6,7 +6,6 @@ const getMessages = (req, res) => {
       const client = await clientPromise;
       const db = client.db("messages");
       const messages = await db.collection("messages").find({}).toArray();
-
       res.json(messages);
       resolve();
     } catch (e) {

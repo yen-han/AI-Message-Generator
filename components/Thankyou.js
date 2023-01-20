@@ -42,7 +42,6 @@ function Thankyou() {
     let formDataObj = Object.fromEntries(formData.entries());
     setIsLoading(true);
     let prompt = "Thank you email about " + formDataObj.emailInput;
-    // console.log(formDataObj, value);
     generateAI(prompt, value)
       .then((response) => {
         let tempResults = [];
@@ -56,9 +55,7 @@ function Thankyou() {
         });
 
         setMessages(tempResults);
-        // console.log(messages);
         setIsLoading(false);
-        // console.log(response.data.choices);
       })
       .catch((err) => console.log(err));
   };
