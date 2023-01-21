@@ -19,3 +19,22 @@
     font-weight: 700;
   }
 }
+@media screen and (max-width: 480px) {
+  .td[data-th]:before {
+    content: attr(data-th);
+    display: block;
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--chakra-letterSpacings-wider);
+    text-align: start;
+    padding-top: var(--chakra-space-3);
+    padding-bottom: var(--chakra-space-3);
+    line-height: var(--chakra-lineHeights-4);
+    font-size: var(--chakra-fontSizes-xs);
+    color: var(--chakra-colors-gray-600);
+    border-bottom: var(--chakra-borders-1px);
+    border-color: var(--chakra-colors-gray-100);
+    display: block;
+  }
+}

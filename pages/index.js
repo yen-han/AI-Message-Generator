@@ -24,7 +24,7 @@ export default function Home() {
             align="start stretch"
             justify="left"
             bg="blue.50"
-            h={["80px", "100vh"]}
+            h={["70px", "100vh"]}
             width={["100vw", "200px"]}
             marginRight="3"
             paddingLeft={["5", "0"]}
@@ -32,7 +32,7 @@ export default function Home() {
             borderRightColor="gray.300"
             borderWidth="1px"
           >
-            <Center h="40px" align="center">
+            <Center h="30px" align="center">
               <div
                 onClick={() => {
                   setWhich(0);
@@ -41,7 +41,7 @@ export default function Home() {
                 <Text as="b">Thank you</Text>
               </div>
             </Center>
-            <Center h="40px" align="center">
+            <Center h="30px" align="center">
               <div
                 onClick={() => {
                   setWhich(1);
@@ -51,7 +51,8 @@ export default function Home() {
               </div>
             </Center>
           </Stack>
-          <Box m="7" width={["80%", "70%"]}>
+
+          <Box margin="auto" mt="7" width={["85%", "70%"]}>
             <h1 mt={["0", "20"]}>
               <Center>
                 <Text fontSize={["2xl", "4xl"]} color="blue.600">

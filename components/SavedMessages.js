@@ -52,60 +52,88 @@ function SavedMessages() {
   }
 
   return (
-    <Box bg="blue.50" mt="6" borderWidth="1px" padding="5" borderRadius="lg">
+    <Box
+      bg="blue.50"
+      mt="6"
+      borderWidth="1px"
+      padding={["2", "5"]}
+      borderRadius="lg"
+    >
       <TableContainer whiteSpace="normal">
         <Table variant="simple">
           <Thead>
             <Tr>
-              <Th>Topic</Th>
-              <Th>Saved Messages</Th>
-              <Th>Delete</Th>
+              <Th className={styles.th} display={["none", "table-cell"]}>
+                Topic
+              </Th>
+              <Th className={styles.th} display={["none", "table-cell"]}>
+                Saved Messages
+              </Th>
+              <Th className={styles.th} display={["none", "table-cell"]}>
+                Delete
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
             {currentRecords.map((message, index) => {
               return (
                 <Tr key={index}>
-                  <Td>{message.topic}</Td>
-                  <Td>{message.text} </Td>
-                  <Td>
-                    <Center>
-                      <Popover>
-                        {({ onClose }) => (
-                          <>
-                            <PopoverTrigger>
-                              <Button variant="outline">
-                                <Icon as={BiTrash} />
-                              </Button>
-                            </PopoverTrigger>
+                  <Td
+                    className={styles.td}
+                    display={["block", "table-cell"]}
+                    data-th="Topic"
+                  >
+                    {message.topic}
+                  </Td>
+                  <Td
+                    className={styles.td}
+                    data-th="Saved Messages"
+                    display={["block", "table-cell"]}
+                  >
+                    {message.text}{" "}
+                  </Td>
+                  <Td
+                    className={styles.td}
+                    data-th="Delete"
+                    display={["block", "table-cell"]}
+                    justifyContent={["left", "center"]}
+                    alignItems={["left", "center"]}
+                  >
+                    <Popover align={["left", "center"]}>
+                      {({ onClose }) => (
+                        <>
+                          <PopoverTrigger>
+                            <Button variant="outline">
+                              <Icon as={BiTrash} />
+                            </Button>
+                          </PopoverTrigger>
 
-                            <PopoverContent w="230px">
-                              <PopoverArrow />
-                              <PopoverHeader>
-                                Are you sure to delete?
-                              </PopoverHeader>
-                              <PopoverCloseButton />
-                              <PopoverBody>
-                                <Center>
-                                  <Button
-                                    colorScheme="blue"
-                                    mr={5}
-                                    onClick={(e) => {
-                                      onDelete(message);
-                                    }}
-                                  >
-                                    Yes
-                                  </Button>
-                                  <Button colorScheme="gray" onClick={onClose}>
-                                    No
-                                  </Button>
-                                </Center>
-                              </PopoverBody>
-                            </PopoverContent>
-                          </>
-                        )}
-                      </Popover>
-                    </Center>
+                          <PopoverContent w="230px" align={["left", "center"]}>
+                            <PopoverArrow />
+                            <PopoverHeader>
+                              Are you sure to delete?
+                            </PopoverHeader>
+                            <PopoverCloseButton />
+                            <PopoverBody>
+                              <Center>
+                                <Button
+                                  colorScheme="blue"
+                                  mr={5}
+                                  onClick={(e) => {
+                                    onDelete(message);
+                                  }}
+                                >
+                                  Yes
+                                </Button>
+                                <Button colorScheme="gray" onClick={onClose}>
+                                  No
+                                </Button>
+                              </Center>
+                            </PopoverBody>
+                          </PopoverContent>
+                        </>
+                      )}
+                    </Popover>
                   </Td>
                 </Tr>
               );
