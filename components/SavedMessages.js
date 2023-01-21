@@ -10,7 +10,6 @@ import {
   Th,
   Td,
   TableContainer,
-  Checkbox,
   Icon,
 } from "@chakra-ui/react";
 import {
@@ -20,14 +19,13 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
 } from "@chakra-ui/react";
 import styles from "../styles/SavedMessages.module.scss";
 import axios from "axios";
 import { BiTrash } from "react-icons/bi";
+
 function SavedMessages() {
   const [currentPage, setCurrentPage] = useState(0);
   const [recordsPerPage] = useState(5);

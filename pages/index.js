@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Center, VStack, Box, Flex, Text } from "@chakra-ui/react";
+import { ChakraProvider, Center, Stack, Box, Text } from "@chakra-ui/react";
+
 import Thankyou from "../components/Thankyou";
 import SavedMessages from "../components/SavedMessages";
 import clientPromise from "../lib/database";
@@ -17,18 +16,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Flex>
-          <VStack
-            min-w="200px"
-            spacing={4}
+      <main>
+        <Box display={["block", "flex"]}>
+          <Stack
+            direction={["row", "column"]}
+            spacing={[5, 4]}
             align="start stretch"
             justify="left"
             bg="blue.50"
-            h="100vh"
-            width="200px"
+            h={["80px", "100vh"]}
+            width={["100vw", "200px"]}
             marginRight="3"
-            paddingTop="40"
+            paddingLeft={["5", "0"]}
+            paddingTop={["5", "40"]}
             borderRightColor="gray.300"
             borderWidth="1px"
           >
@@ -50,17 +50,21 @@ export default function Home() {
                 <Text as="b">Saved messages</Text>
               </div>
             </Center>
-          </VStack>
-          <Box m="7" width="70%">
-            <h1 className={styles.title} mt="20">
-              <Text color="blue.600">AI Message Generator</Text>
+          </Stack>
+          <Box m="7" width={["80%", "70%"]}>
+            <h1 mt={["0", "20"]}>
+              <Center>
+                <Text fontSize={["2xl", "4xl"]} color="blue.600">
+                  AI Message Generator
+                </Text>
+              </Center>
             </h1>
-            <Center mb="9" fontSize="xl">
+            <Center mb="9" fontSize={["md", "xl"]}>
               Built with NextJS & OPEN AI
             </Center>
             {which === 0 ? <Thankyou /> : <SavedMessages />}
           </Box>
-        </Flex>
+        </Box>
       </main>
     </ChakraProvider>
   );
@@ -69,14 +73,6 @@ export default function Home() {
 export async function getServerSideProps(context) {
   try {
     await clientPromise;
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
     return {
       props: { isConnected: true },
     };

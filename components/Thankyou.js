@@ -99,7 +99,12 @@ function Thankyou() {
         </Center>
       </form>
       {isLoading && (
-        <CircularProgress isIndeterminate color="blue.300" ml="47%" mt="10%" />
+        <CircularProgress
+          isIndeterminate
+          color="blue.300"
+          ml={["40%", "47%"]}
+          mt="10%"
+        />
       )}
       {messages.length !== 0 && (
         <Box
