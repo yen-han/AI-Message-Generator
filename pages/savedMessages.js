@@ -1,19 +1,15 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
-import {
-  ChakraProvider,
-  Center,
-  Stack,
-  Box,
-  Text,
-  StylesProvider,
-} from "@chakra-ui/react";
-import Thankyou from "../components/Thankyou";
-import clientPromise from "../lib/database";
+import { ChakraProvider, Center, Stack, Box, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { Link } from "@chakra-ui/react";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/SavedMessages.module.scss";
+import SavedMessages from "../components/SavedMessages";
+import clientPromise from "../lib/database";
 
 export default function Home() {
+  const [which, setWhich] = useState(0);
+  useEffect(() => {}, [which]);
   return (
     <ChakraProvider>
       <Head>
@@ -21,11 +17,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.Home}>
+      <main>
         <Box display={["block", "flex"]}>
           <Stack
             direction={["row", "column"]}
-            spacing={["3", "1"]}
+            spacing={[3, 1]}
             align="start stretch"
             justify="left"
             bg="blue.50"
@@ -46,9 +42,7 @@ export default function Home() {
               className={styles.menuBlock}
             >
               <Link as={NextLink} href="/">
-                <Text as="b" color="blue.600">
-                  Generate
-                </Text>
+                <Text>Generate</Text>
               </Link>
             </Center>
             <Center
@@ -59,7 +53,9 @@ export default function Home() {
               className={styles.menuBlock}
             >
               <Link as={NextLink} href="/savedMessages">
-                <Text>Saved Messages</Text>
+                <Text as="b" color="blue.600">
+                  Saved Messages
+                </Text>
               </Link>
             </Center>
           </Stack>
@@ -75,7 +71,7 @@ export default function Home() {
             <Center mb="9" fontSize={["md", "xl"]}>
               Built with NextJS & OPEN AI
             </Center>
-            <Thankyou />
+            <SavedMessages />
           </Box>
         </Box>
       </main>
