@@ -1,16 +1,16 @@
 import Head from "next/head";
+import NextLink from "next/link";
+import clientPromise from "../lib/database";
+
+import Thankyou from "../components/Thankyou";
 import {
   ChakraProvider,
   Center,
   Stack,
   Box,
   Text,
-  StylesProvider,
+  Link,
 } from "@chakra-ui/react";
-import Thankyou from "../components/Thankyou";
-import clientPromise from "../lib/database";
-import NextLink from "next/link";
-import { Link } from "@chakra-ui/react";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {

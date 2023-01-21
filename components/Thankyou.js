@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { generateAI } from "../pages/api/generate";
 import { v4 as uuidv4 } from "uuid";
 import { ulid } from "ulid";
 import axios from "axios";
+import { generateAI } from "../pages/api/generate";
 import {
   FormControl,
   FormLabel,
@@ -10,8 +10,6 @@ import {
   Center,
   Button,
   Box,
-} from "@chakra-ui/react";
-import {
   Table,
   Thead,
   Tbody,
@@ -22,8 +20,6 @@ import {
   Text,
   CircularProgress,
   Checkbox,
-} from "@chakra-ui/react";
-import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,

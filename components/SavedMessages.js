@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { BiTrash } from "react-icons/bi";
+import axios from "axios";
 import {
   Box,
   Center,
@@ -11,8 +13,6 @@ import {
   Td,
   TableContainer,
   Icon,
-} from "@chakra-ui/react";
-import {
   Button,
   Popover,
   PopoverTrigger,
@@ -23,8 +23,6 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 import styles from "../styles/SavedMessages.module.scss";
-import axios from "axios";
-import { BiTrash } from "react-icons/bi";
 
 function SavedMessages() {
   const [currentPage, setCurrentPage] = useState(0);

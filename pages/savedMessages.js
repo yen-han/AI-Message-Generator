@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import { ChakraProvider, Center, Stack, Box, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { Link } from "@chakra-ui/react";
-import styles from "../styles/SavedMessages.module.scss";
-import SavedMessages from "../components/SavedMessages";
 import clientPromise from "../lib/database";
+
+import SavedMessages from "../components/SavedMessages";
+import {
+  ChakraProvider,
+  Center,
+  Stack,
+  Box,
+  Link,
+  Text,
+} from "@chakra-ui/react";
+import styles from "../styles/SavedMessages.module.scss";
 
 export default function Home() {
   const [which, setWhich] = useState(0);
