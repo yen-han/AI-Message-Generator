@@ -49,7 +49,7 @@ export default function Home() {
               className={styles.menuBlock}
             >
               <Link as={NextLink} href="/">
-                <Text>Generate</Text>
+                <Text>Generate Messages</Text>
               </Link>
             </Center>
             <Center

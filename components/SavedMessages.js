@@ -119,6 +119,7 @@ function SavedMessages() {
                                   mr={5}
                                   onClick={(e) => {
                                     onDelete(message);
+                                    onClose();
                                   }}
                                 >
                                   Yes

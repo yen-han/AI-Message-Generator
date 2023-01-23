@@ -47,7 +47,7 @@ export default function Home() {
             >
               <Link as={NextLink} href="/">
                 <Text as="b" color="blue.600">
-                  Generate
+                  Generate Messages
                 </Text>
               </Link>
             </Center>
