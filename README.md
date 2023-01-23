@@ -12,7 +12,7 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It ge
 - Pagination for the list of saved messages.
 - Style with external UI kit (Chakra UI).
 
-## How it works
+## How It Works
 
 Generate Messages page
 
