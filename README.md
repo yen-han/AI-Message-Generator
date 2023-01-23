@@ -2,7 +2,7 @@
 
 AI Message Generator application using [Open AI](https://openai.com/api/). It generates and manages the thank-you email on the customized topic.
 
-## Feature
+## Key Features
 
 - Interaction with REST API  
   The message is requested with Open AI API. API is re-fetched whenever the 'Generate' button is clicked. The results are presented in a table format.
