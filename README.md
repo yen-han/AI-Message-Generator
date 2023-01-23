@@ -10,20 +10,21 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It ge
   Being connected with MongoDB, messages can be maintained with create, read, and delete operations from the database.
 - Responsive design for desktop, tablet, and mobile.
 - Pagination for the list of saved messages.
-- Style with External UI kit (Chakra UI)
+- Style with external UI kit (Chakra UI)
 
 ## How it works
 
 Generate Messages page
 
-- Enter the topic and the number of messages for the thank-you email. Hit the "Generate" button.
-- After the loading is completed, the messages will be shown on the table below the button.
-- If the result is satisfied, the message can be saved by marking the check box.
+1. Enter the topic and the number of messages for the thank-you email. 
+2. Hit the "Generate" button.
+3. After the loading is completed, the messages will be shown on the table below the button.
+4. If the result is satisfied, the message can be saved by marking the check box.
 
 Saved Messages page
 
-- Saved messages are shown in a table format from the most recent to the oldest.
-- By clicking the trash bin icon, the messages can be deleted.
+1. Saved messages are shown in a table format from the most recent to the oldest.
+2. By clicking the trash bin icon, the messages can be deleted.
 
 ## Built With
 
