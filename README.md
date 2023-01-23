@@ -4,13 +4,13 @@ AI Message Generator application using [Open AI](https://openai.com/api/). It ge
 
 ## Key Features
 
-- Interaction with REST API  
+- Interaction with REST API.   
   The message is requested with Open AI API. API is re-fetched whenever the 'Generate' button is clicked. The results are presented in a table format.
-- Create, Read, and Delete operations MongoDB Database.
+- Create, Read, and Delete operations MongoDB Database.    
   Being connected with MongoDB, messages can be maintained with create, read, and delete operations from the database.
 - Responsive design for desktop, tablet, and mobile.
 - Pagination for the list of saved messages.
-- Style with external UI kit (Chakra UI)
+- Style with external UI kit (Chakra UI).
 
 ## How it works
 
@@ -38,19 +38,19 @@ Saved Messages page
 
 ## Getting Started
 
-1. Clone the repo
+1. Clone the repo.
 
 ```bash
 git clone https://github.com/yen-han/AI-Message-Generator.git
 ```
 
-2. Install NPM packages
+2. Install NPM packages.
 
 ```bash
 npm install
 ```
 
-3. Run the development server
+3. Run the development server.
 
 ```bash
 npm run dev
