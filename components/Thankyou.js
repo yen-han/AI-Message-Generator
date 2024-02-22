@@ -56,7 +56,11 @@ function Thankyou() {
       formDataObj.emailInput +
       `don't put any extra. format should be something like Table table_name {
         column_name column_type [column_settings]
-    }
+    } and for relationship the format should be Table schema2.table2 {
+      id integer
+      column2 integer [ref: > schema1.table1.column1]
+  } // or this
+  Ref: blogging.posts.user_id > core.users.id
     `;
 
     try {
