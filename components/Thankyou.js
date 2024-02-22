@@ -54,7 +54,10 @@ function Thankyou() {
     let prompt =
       "Generate DBML format for " +
       formDataObj.emailInput +
-      "don't put any extra.";
+      `don't put any extra. format should be something like Table table_name {
+        column_name column_type [column_settings]
+    }
+    `;
 
     try {
       const requestBody = {
@@ -141,13 +144,13 @@ function Thankyou() {
           padding="5"
           borderRadius="lg"
         >
-          {/* <a href="https://dbdocs.io/yenhan.dev/AIworkshop">ERD Graph</a> */}
+          <a href="https://dbdocs.io/yenhan.dev/AIworkshop" target="_blank">ERD Graph</a>
           <TableContainer whiteSpace="normal">
             <Table variant="simple">
               <Thead>
                 <Tr>
                   <Th>Generated DBML</Th>
-                  <Th>Save</Th>
+                  
                 </Tr>
               </Thead>
               <Tbody>
@@ -155,7 +158,7 @@ function Thankyou() {
                   <Td>
                     <Text wordBreak="break-word">{messages}</Text>
                   </Td>
-                  <Td>
+                  {/* <Td>
                     <Center>
                       <Checkbox
                         // isChecked={tweets[saveIndex].save}
@@ -167,7 +170,7 @@ function Thankyou() {
                         }}
                       ></Checkbox>
                     </Center>
-                  </Td>
+                  </Td> */}
                 </Tr>
               </Tbody>
             </Table>

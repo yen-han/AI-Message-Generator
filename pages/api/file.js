@@ -1,11 +1,11 @@
 // @ts-nocheck
 import childProcess from "child_process";
 // import { writeFileSync } from "fs";
-// import path from "path";
-// import fs from "fs/promises";
+import path from "path";
+// import fs from "fs";
 export default async function handler(message) {
   // Define the file path
-  // const filePath = path.join(process.cwd(), "pages", "api", "database.dbml");
+  const filePath = path.join(process.cwd(), "pages", "api", "database.dbml");
 
   // Define the new content
   const projectName = `Project AIworkshop {
@@ -26,7 +26,7 @@ export default async function handler(message) {
   // try {
   //   // Open the file, delete its content, and start writing anew
   //   // fs.writeFileSync(filePath, newContent);
-  //   // await fs.writeFile(filePath, newContent);
+    // await fs.writeFile(filePath, newContent);
   //   // await writeFile(filePath, newContent);
   //   // await fsPromises.writeFile(filePath, newContent);
   //   // await fs.writeFile(filePath, newContent);
