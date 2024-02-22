@@ -1,7 +1,5 @@
 import Head from "next/head";
 import NextLink from "next/link";
-import clientPromise from "../lib/database";
-
 import Thankyou from "../components/Thankyou";
 import {
   ChakraProvider,
@@ -17,7 +15,7 @@ export default function Home() {
   return (
     <ChakraProvider>
       <Head>
-        <title>Message Generator</title>
+        <title>Data structure using LLM</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -47,7 +45,7 @@ export default function Home() {
             >
               <Link as={NextLink} href="/">
                 <Text as="b" color="blue.600">
-                  Generate Messages
+                  Generate DBML
                 </Text>
               </Link>
             </Center>
@@ -58,9 +56,9 @@ export default function Home() {
               paddingRight={["5", "0"]}
               className={styles.menuBlock}
             >
-              <Link as={NextLink} href="/savedMessages">
+              {/* <Link as={NextLink} href="/savedMessages">
                 <Text>Saved Messages</Text>
-              </Link>
+              </Link> */}
             </Center>
           </Stack>
 
@@ -68,13 +66,13 @@ export default function Home() {
             <h1 mt={["0", "20"]}>
               <Center>
                 <Text fontSize={["2xl", "4xl"]} color="blue.600">
-                  AI Message Generator
+                  AI Generator
                 </Text>
               </Center>
             </h1>
-            <Center mb="9" fontSize={["md", "xl"]}>
+            {/* <Center mb="9" fontSize={["md", "xl"]}>
               Built with NextJS & OPEN AI
-            </Center>
+            </Center> */}
             <Thankyou />
           </Box>
         </Box>
@@ -83,16 +81,16 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context) {
-  try {
-    await clientPromise;
-    return {
-      props: { isConnected: true },
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      props: { isConnected: false },
-    };
-  }
-}
+// export async function getServerSideProps(context) {
+//   try {
+//     await clientPromise;
+//     return {
+//       props: { isConnected: true },
+//     };
+//   } catch (e) {
+//     console.error(e);
+//     return {
+//       props: { isConnected: false },
+//     };
+//   }
+// }
