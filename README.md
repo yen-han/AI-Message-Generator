@@ -62,3 +62,6 @@ npm run dev
 
 - [ ] Layout
 - [ ] Different ways of API Call
+
+## Notes
+In [aiworkshop branch](https://github.com/yen-han/AI-Message-Generator/tree/aiworkshop), the tool helps to generate dbml and download the ouput as a file(.dbml) to eventually create [dbdocs](https://dbdocs.io/)https://dbdocs.io/ 
